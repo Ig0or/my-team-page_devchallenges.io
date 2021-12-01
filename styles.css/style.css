@@ -1,0 +1,146 @@
+/* RESET */
+body,
+h1,
+h2,
+p,
+img {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* ESTRUTURAÇÃO GRID */
+
+.body-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+}
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: minmax(305px, auto) minmax(400px, 1fr);
+    gap: 30px;
+    padding: 60px;
+    align-items: start;
+}
+
+.header h1 {
+    font-size: 2.25rem;
+    font-family: "PT Serif";
+}
+
+.header__info {
+    justify-self: end;
+}
+
+.header__info h2 {
+    margin-bottom: 10px;
+    font-size: 1.125rem;
+    font-family: "Poppins";
+    text-transform: uppercase;
+}
+
+.header__info p {
+    font-size: 1.125rem;
+    font-family: "Poppins";
+    max-width: 400px;
+}
+
+/* CONTENT */
+.content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 60px;
+    gap: 30px;
+}
+
+.content__person {
+    padding-right: 20px;
+}
+
+.content__person__container {
+    display: flex;
+}
+
+.content__person__container__job {
+    writing-mode: vertical-rl;
+    margin-left: 10px;
+    font-family: "PT Serif";
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.content__person__name {
+    margin-top: 15px;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.content__person:nth-of-type(3n + 2) {
+    margin-top: 120px;
+}
+
+/* FOOTER */
+.footer {
+    grid-area: footer;
+    margin: 50px 0 20px 0;
+}
+
+.footer p {
+    font-family: "Montserrat";
+    font-size: 0.875rem;
+    color: #a9a9a9;
+    text-align: center;
+}
+
+/* MOBILE */
+@media (max-width: 910px) {
+    /* HEADER */
+    .header {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 30px;
+    }
+
+    .header__info {
+        justify-self: start;
+        margin-top: 38px;
+    }
+
+    .header__info p {
+        font-size: 0.875rem;
+        max-width: 300px;
+    }
+
+    /* CONTENT */
+    .content {
+        grid-template-columns: 1fr 1fr;
+        padding: 30px;
+        align-items: flex-start;
+        gap: 0px 30px;
+    }
+
+    .content__person:nth-of-type(3n + 2) {
+        margin-top: 0;
+    }
+
+    .content__person:nth-of-type(2n + 2) {
+        margin-top: 80px;
+    }
+}
